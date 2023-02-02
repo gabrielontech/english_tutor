@@ -1,7 +1,10 @@
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '/data/message.dart';
 
+
+
+// That's how you make the call to chatgpt API
+/*
 // Function to make API request
 Future<String> generateText(String prompt) async {
   // Set API endpoint and headers
@@ -39,8 +42,9 @@ Future<String> generateText(String prompt) async {
     return Future.error('An error occurred while generating text: $e');
   }
 }
+*/
 
-void gptAnswer(List<Msg > messages, Future<String> response)
+void gptAnswer(List<Msg> messages, Future<String> response)
 {
   try {
   response.then((result) {
