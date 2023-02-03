@@ -63,14 +63,16 @@ class _MainPageState extends State<MainPage> {
                 hintText: "Type something here..."
               ),
               onSubmitted: (text)
-              {
+               async {
                 final message = Msg(
                   text: text,
                   date: DateTime.now(),
                   isMe: true
                 );
                 setState(() => messages.add(message));
-                gptAnswer(messages, generateText(text));
+                response = (generateText(text));
+                Msg bot = await gptAnswer(response);
+                setState(() => messages.add(bot));
               }
               ),
             )

@@ -8,4 +8,14 @@ class Msg {
         required this.date,
         required this.isMe,
     });
+
+}
+Msg error(String text)
+{
+  final message = Msg(
+                text: text,
+                 date: DateTime.now(),
+                 isMe: false
+      );
+      return message;
 }
