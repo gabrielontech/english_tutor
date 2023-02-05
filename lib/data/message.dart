@@ -1,3 +1,4 @@
+
 class Msg {
     final String text;
     final DateTime date;
@@ -8,8 +9,8 @@ class Msg {
         required this.date,
         required this.isMe,
     });
-
 }
+
 Msg error(String text)
 {
   final message = Msg(
@@ -19,3 +20,4 @@ Msg error(String text)
       );
       return message;
 }
+
