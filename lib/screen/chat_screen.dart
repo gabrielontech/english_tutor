@@ -71,6 +71,15 @@ class _MainPageState extends State<MainPage> {
             Container(
               color: Colors.grey.shade300,
               child: TextField(
+                onSubmitted: (text) async {
+                  final message = Msg(
+                      text: fieldText.text, date: DateTime.now(), isMe: true);
+                  setState(() => messages.add(message));
+                  response = generateText(fieldText.text);
+                  Msg bot = await gptAnswer(response);
+                  setState(() => messages.add(bot));
+                  clearText();
+                },
                 controller: fieldText,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(12),
@@ -81,8 +90,8 @@ class _MainPageState extends State<MainPage> {
                             date: DateTime.now(),
                             isMe: true);
                         setState(() => messages.add(message));
+                        response = generateText(fieldText.text);
                         clearText();
-                        response = (generateText(fieldText.text));
                         Msg bot = await gptAnswer(response);
                         setState(() => messages.add(bot));
                       },
